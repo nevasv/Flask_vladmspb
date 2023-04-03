@@ -1,0 +1,11 @@
+{% extends 'default.html' %}
+{% block content %}
+{{ super() }}
+<form action="/form" method="post" class="form">
+  <p><label>email: </label>  <input type="text" name="email" value="" required /></p>
+  <p><label>hero: </label>  <input type="text" name="hero" value="" required /></p>
+  <p><label>answer: </label></p>
+  <p><textarea name="massage" rows="10" cols="50"></textarea></p>
+  <p><input type="submit" value="Отправить" />
+</form>
+{% endblock%}
