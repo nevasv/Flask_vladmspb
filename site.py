@@ -37,24 +37,24 @@ def pageNotFount(error):
 @app.route("/login", methods=["POST", "GET"])
 def login():
     if 'userLogged' in session:
-        return redirect(url_for('profile', email=session['userLogged']))
-    elif request.method == 'POST' and request.form['email'] == 'nevasv@yandex.ru' and request.form['psw'] == "123":
-        session['userLogged'] = request.form['email']
-        return redirect(url_for('profile', email=session['userLogged']))
+        return redirect(url_for('profile', username=session['userLogged']))
+    elif request.method == 'POST' and request.form['username'] == "nevasv" and request.form['psw'] == "123":
+        session['userLogged'] = request.form['username']
+        return redirect(url_for('profile', username=session['userLogged']))
     return render_template('login.html', title='Авторизация', menu=menu)
 
 
 #
 # @app.route("/profile", methods=["POST", "GET"])
-# def profile(email):
-#     return f"Профиль пользователя {email}"
+# def profile(username):
+#     return f"Профиль пользователя {username}"
 #
 
-@app.route("/profile/<email>", methods=["POST", "GET"])
-def profile(email):
-    if 'userlogged' not in session or session['userLogged'] != 'email':
+@app.route("/profile/<username>", methods=["POST", "GET"])
+def profile(username):
+    if 'userlogged' not in session or session['userLogged'] != 'username':
         abort(401)
-        return f"Профиль пользователя {email}"
+        return f"Профиль пользователя {username}"
 
 
 if __name__ == "__main__":
