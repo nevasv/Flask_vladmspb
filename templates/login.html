@@ -1,0 +1,9 @@
+{% extends 'default.html' %}
+{% block content %}
+{{ super() }}
+<form action="/login" method="post" class="form">
+  <p><label>email: </label>  <input type="text" name="email" value="" required /></p>
+  <p><label>password: </label>  <input type="text" name="psw" value="" required /></p>
+  <p><input type="submit" value="Войти" />
+</form>
+{% endblock%}
